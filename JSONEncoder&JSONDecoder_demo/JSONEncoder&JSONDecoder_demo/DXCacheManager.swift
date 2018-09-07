@@ -131,21 +131,25 @@ public class DXCacheManager {
             
             guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? Data else{
                 print("ERROR data retriving from cache")
-                completionHandler(nil)
+                DispatchQueue.main.async {
+                    completionHandler(nil)
+                }
                 return
             }
             
             do {
                 let object = try PropertyListDecoder().decode(T.self, from: data)
                 print("data retriving SUCCESSFULLY from cache")
-                completionHandler(object)
+                DispatchQueue.main.async {
+                    completionHandler(object)
+                }
             }catch{
                 print("ERROR data retriving from cache")
-                completionHandler(nil)
+                DispatchQueue.main.async {
+                    completionHandler(nil)
+                }
             }
-            
         }
-        
     }
     
     //MARK: - Private Methods
@@ -167,6 +171,5 @@ public class DXCacheManager {
         }
         return false
     }
-    
-    
+
 }

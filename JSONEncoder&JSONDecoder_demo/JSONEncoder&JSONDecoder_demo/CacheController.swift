@@ -33,9 +33,7 @@ class CacheController: UIViewController {
             btn.frame = CGRect.init(x: 0, y: 100+70, width: 250, height: 50)
             view.addSubview(btn)
         }
-        
-        
-        
+
         do{
             let btn = UIButton()
             btn.backgroundColor = UIColor.blue
@@ -98,15 +96,15 @@ extension CacheController{
     @objc func storeSingleDataAction() {
         let user = UserModel(name: "Harvey", age: 18, email: "yaozuopan@icloud.com")
         DXCacheManager.sharedInstance.setObject(user, forKey: userModelKey)
-        
     }
 }
 
 
 //MARK: -complex data
 extension CacheController{
+    
     @objc func removeAllDataAction() {
-        DXCacheManager.sharedInstance.removeObjectForKey(userModelKey)
+        DXCacheManager.sharedInstance.removeAllObjects()
     }
     
     @objc func fetchComplexDataAction() {
@@ -116,14 +114,14 @@ extension CacheController{
                 print("获取失败了")
                 return
             }
-    
+
             for item in model.member {
                 print("name=\(item.name),age=\(item.age),email=\(item.email),qq=\(item.qq ?? "无")")
             }
             
         }
     }
-    
+        
     
     @objc func storeComplexDataAction() {
         let group = Department(name: "软件部", id: 889)
@@ -132,6 +130,5 @@ extension CacheController{
         user2.qq = "863223764"
         group.member = [user1, user2]
         DXCacheManager.sharedInstance.setObject(group, forKey: departmentKey)
-        
     }
 }
