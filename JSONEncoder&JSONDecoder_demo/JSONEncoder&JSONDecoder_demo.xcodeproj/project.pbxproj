@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112F39D122125C0A00D7975D /* Array+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F39D022125C0A00D7975D /* Array+Codable.swift */; };
 		1140776B213AC66800E757F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140776A213AC66800E757F7 /* AppDelegate.swift */; };
 		1140776D213AC66800E757F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140776C213AC66800E757F7 /* ViewController.swift */; };
 		11407770213AC66800E757F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1140776E213AC66800E757F7 /* Main.storyboard */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		112F39D022125C0A00D7975D /* Array+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Codable.swift"; sourceTree = "<group>"; };
 		11407767213AC66800E757F7 /* JSONEncoder&JSONDecoder_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JSONEncoder&JSONDecoder_demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1140776A213AC66800E757F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1140776C213AC66800E757F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 			children = (
 				1140777E213AC71000E757F7 /* UserModel.swift */,
 				11B0007B21414CCD0076B28B /* DXCacheManager.swift */,
-				112F39D022125C0A00D7975D /* Array+Codable.swift */,
 				1140776A213AC66800E757F7 /* AppDelegate.swift */,
 				1140776C213AC66800E757F7 /* ViewController.swift */,
 				11B0007D21415DFC0076B28B /* CacheController.swift */,
@@ -153,7 +150,6 @@
 				1140776D213AC66800E757F7 /* ViewController.swift in Sources */,
 				11B0007E21415DFC0076B28B /* CacheController.swift in Sources */,
 				11B000802141633F0076B28B /* JSONController.swift in Sources */,
-				112F39D122125C0A00D7975D /* Array+Codable.swift in Sources */,
 				1140777F213AC71000E757F7 /* UserModel.swift in Sources */,
 				11B0007C21414CCD0076B28B /* DXCacheManager.swift in Sources */,
 				1140776B213AC66800E757F7 /* AppDelegate.swift in Sources */,
