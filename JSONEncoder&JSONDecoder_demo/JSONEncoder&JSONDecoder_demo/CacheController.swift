@@ -39,7 +39,7 @@ class CacheController: UIViewController {
             btn.backgroundColor = UIColor.blue
             btn.setTitle("store complex data", for: .normal)
             btn.addTarget(self, action: #selector(storeComplexDataAction), for: .touchUpInside)
-            btn.frame = CGRect.init(x: 0, y: 100+70+70, width: 250, height: 50)
+            btn.frame = CGRect.init(x: 0, y: 100+70+70, width: 200, height: 50)
             view.addSubview(btn)
         }
         do{
@@ -47,7 +47,24 @@ class CacheController: UIViewController {
             btn.backgroundColor = UIColor.blue
             btn.setTitle("fetch complex data", for: .normal)
             btn.addTarget(self, action: #selector(fetchComplexDataAction), for: .touchUpInside)
-            btn.frame = CGRect.init(x: 0, y: 100+70+70+70, width: 250, height: 50)
+            btn.frame = CGRect.init(x: 0, y: 100+70+70+70, width: 200, height: 50)
+            view.addSubview(btn)
+        }
+        
+        do{
+            let btn = UIButton()
+            btn.backgroundColor = UIColor.green
+            btn.setTitle("store Array data", for: .normal)
+            btn.addTarget(self, action: #selector(storeDataArrayAction), for: .touchUpInside)
+            btn.frame = CGRect.init(x: 200, y: 100+70+70, width: 200, height: 50)
+            view.addSubview(btn)
+        }
+        do{
+            let btn = UIButton()
+            btn.backgroundColor = UIColor.green
+            btn.setTitle("fetch Array data", for: .normal)
+            btn.addTarget(self, action: #selector(fetchDataArrayAction), for: .touchUpInside)
+            btn.frame = CGRect.init(x: 200, y: 100+70+70+70, width: 200, height: 50)
             view.addSubview(btn)
         }
 
@@ -62,7 +79,7 @@ class CacheController: UIViewController {
         do{
             let btn = UIButton()
             btn.backgroundColor = UIColor.red
-            btn.setTitle("remove single data", for: .normal)
+            btn.setTitle("remove complex data", for: .normal)
             btn.addTarget(self, action: #selector(removeAllDataAction), for: .touchUpInside)
             btn.frame = CGRect.init(x: 0, y: 100+70+70+70+70+70, width: 250, height: 50)
             view.addSubview(btn)
@@ -118,9 +135,25 @@ extension CacheController{
             for item in model.member {
                 print("name=\(item.name),age=\(item.age),email=\(item.email),qq=\(item.qq ?? "无")")
             }
+        }
+    
+    }
+    
+    
+    @objc func fetchDataArrayAction() {
+        
+        DXCacheManager.sharedInstance.getObjectsForKey(departmentKey) { (result :[UserModel]?) in
+            guard let model = result else{
+                print("获取失败了")
+                return
+            }
+            for item in model {
+                print("name=\(item.name),age=\(item.age),email=\(item.email),qq=\(item.qq ?? "无")")
+            }
             
         }
     }
+    
         
     
     @objc func storeComplexDataAction() {
@@ -131,4 +164,14 @@ extension CacheController{
         group.member = [user1, user2]
         DXCacheManager.sharedInstance.setObject(group, forKey: departmentKey)
     }
+    
+    
+    @objc func storeDataArrayAction() {
+
+        let user1 = UserModel(name: "Harvey", age: 18, email: "Harvey@icloud.com")
+        let user2 = UserModel(name: "Jojo", age: 25, email: "Jojo@icloud.com")
+        let array = [user1,user2]
+        DXCacheManager.sharedInstance.setObject(array, forKey: departmentKey)
+    }
+    
 }

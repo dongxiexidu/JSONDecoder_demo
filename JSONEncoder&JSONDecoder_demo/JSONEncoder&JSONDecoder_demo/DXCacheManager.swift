@@ -152,6 +152,44 @@ public class DXCacheManager {
         }
     }
     
+    
+    /// This method is used to retrieve value from cache for specified key
+    ///
+    /// - Parameters:
+    ///   - key: Identifier in cache for objects
+    ///   - completionHandler: For handling completion state of fetch operation
+    public func getObjectsForKey<T: Codable>(_ key: String, completionHandler: @escaping ([T]?)->()) {
+        cacheQueue.async { [weak self] in
+            guard let path = self?.pathForKey(key) else{
+                print("File at path for key : \(key) not found")
+                return
+            }
+            
+            guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? Data else{
+                print("ERROR data retriving from cache")
+                DispatchQueue.main.async {
+                    completionHandler(nil)
+                }
+                return
+            }
+            
+            do {
+
+                let object = try PropertyListDecoder().decode(Array<T>.self, from: data)
+                print("data retriving SUCCESSFULLY from cache")
+                DispatchQueue.main.async {
+                    completionHandler(object)
+                }
+            }catch{
+                print("ERROR data retriving from cache")
+                DispatchQueue.main.async {
+                    completionHandler(nil)
+                }
+            }
+        }
+    }
+    
+    
     //MARK: - Private Methods
     
     private func pathForKey(_ key: String)->String?{
