@@ -10,10 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-
-    
-    
     @IBAction func jumpToNativeJSONAction(_ sender: Any) {
        
         let vc = JSONController()

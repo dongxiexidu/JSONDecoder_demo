@@ -91,7 +91,7 @@ class CacheController: UIViewController {
     
 }
 
-//MARK: -single data
+//MARK:- single data
 extension CacheController{
     @objc func removeSingleDataAction() {
         DXCacheManager.sharedInstance.removeObjectForKey(userModelKey)
@@ -117,7 +117,7 @@ extension CacheController{
 }
 
 
-//MARK: -complex data
+//MARK:- complex data
 extension CacheController{
     
     @objc func removeAllDataAction() {

@@ -53,7 +53,7 @@ class JSONController: UIViewController {
     }
 
 }
-//MARK: JSON解码 ---> 将JSON字符串转成[模型]
+//MARK: - JSON解码 ---> 将JSON字符串转成[模型]
 extension JSONController {
    @objc func JSONToModel() {
         let jsonString = "{\"userName\":\"HarveyCC\",\"age\":20,\"userEmail\":\"yaozuopan@icloud.com\"}"
@@ -87,7 +87,7 @@ extension JSONController {
     
 }
 
-//MARK: 将[模型]转成JSON字符串
+//MARK: - 将[模型]转成JSON字符串
 extension JSONController {
     
    @objc func modelToJSON() {
@@ -114,7 +114,5 @@ extension JSONController {
                 print(jsonString)
             }
         }
-        
     }
-    
 }
